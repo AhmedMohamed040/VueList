@@ -1,0 +1,184 @@
+:root {
+    --green: #4fc08d;
+    --font: cursive;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga", "kern";
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: linear-gradient(to right, #9adbbe 20%, #4fc08d);
+}
+
+body {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+}
+
+button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.app {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1em;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(25, 25, 25, .25);
+}
+
+.btn {
+    font-size: 14px;
+    margin: 0.5em;
+    border-radius: 2em;
+    padding: 0.75em 1.5em;
+    cursor: pointer;
+    background: none;
+    color: var(--green);
+    border: var(--green) 1px solid;
+    letter-spacing: 1px;
+    font-family: var(--font);
+    transition: 0.3s ease-out;
+}
+
+.btn:hover,
+.btn:focus {
+    color: #fff;
+    background: var(--green);
+}
+
+.form {
+    width: 100%;
+    padding: 1.5rem 1rem 0 1rem;
+    display: flex;
+}
+
+.form input {
+    width: 100%;
+    font-size: 14px;
+    margin: 0.5em;
+    border-radius: 2em;
+    padding: 0.75em 1.5em;
+    background: none;
+    font-family: var(--font);
+    border: #e3e3e3 1px solid;
+    transition: border 0.7 ease-out;
+}
+
+.form input:focus {
+    border: var(--green) 1px solid;
+    outline: none;
+}
+
+.tasks {
+    width: 100%;
+    padding: 0 1rem;
+    flex: 1;
+}
+
+.tasks .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 3px;
+    transition: 0.4s;
+    color: var(--green);
+}
+
+.tasks .item:last-child {
+    margin-bottom: 0;
+}
+
+.complete .toggle-item::after {
+    background: lightgreen;
+}
+
+.tasks .item .toggle-item {
+    position: relative;
+}
+
+.toggle-item::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: .25vw;
+    background: var(--green);
+    transition: .3s ease-out;
+    transform-origin: center;
+    border-radius: 50%;
+    transform: scaleX(0);
+}
+
+.complete .toggle-item::after,
+.complete .toggle-item:focus,
+.complete .toggle-item {
+    transform: scaleX(1);
+    color: rgba(79, 192, 141, .4);
+}
+
+.tasks .item .remove-item {
+    margin-left: 0.5em;
+    background: none;
+    border: 1px solid;
+    color: inherit;
+    padding: 0;
+    line-height: 1;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.filters {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 1rem 1.5rem 1rem;
+}
+
+.note-move,
+.note-leave,
+.note-enter-active {
+    transition: 0.3s cubic-bezier(.87, -.41, .19, 1.44);
+    transform: skew(90deg);
+}
+
+.note-enter,
+.note-leave-active {
+    transform: skew(90deg);
+    opacity: 0;
+}

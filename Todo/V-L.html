@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VueList</title>
+    <link rel="icon" type="image/png" href="./list5.png?v=2">
+    <meta name="description" content="List">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/ee3e8f877d.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./V-L.css">
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div id="app" class='app'>
+        <form class="form" v-on:submit="addTask">
+            <input class="f-input" type="text" v-model="tasks">
+            <button class="btn f-button" type="submit">Add</button>
+        </form>
+
+
+        <transition-group tag="ol" class="tasks" name="note">
+            <li class="item" v-for="(task, index) in filterTasks" :key="task.id" v-bind:class="{ complete: task.complete }">
+                <button class="toggle-item" v-on:click="toggleTasks(task)" v-bind:title="task.date">
+                    {{ task.text }}
+                </button>
+                <button class="btn remove-item" v-on:click="removeTask(index)">
+                    <i class="fa" v-bind:class="[task.complete ? 'fa-check' : 'fa-times']"></i>
+                </button>
+            </li>
+        </transition-group>
+        <div class="filters">
+            <button class="btn button-f-all" v-on:click="filtersTasks('all')">All</button>
+            <button class="btn button-f-complete" v-on:click="filtersTasks('complete')">Complete</button>
+            <button class="btn button-f-incomplete" v-on:click="filtersTasks('incomplete')">Incomplete</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="vue.js"></script>
+    <script src="./V-L.js" async defer></script>
+
+
+</body>
+
+</html>
