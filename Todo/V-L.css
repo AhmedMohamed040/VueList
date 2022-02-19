@@ -1,5 +1,5 @@
 :root {
-    --green: #4fc08d;
+    --green: #BF8B67;
     --font: cursive;
 }
 
@@ -15,7 +15,7 @@ html {
     font-feature-settings: "liga", "kern";
     overflow-y: scroll;
     overflow-x: hidden;
-    background: linear-gradient(to right, #9adbbe 20%, #4fc08d);
+    background: linear-gradient(to right, #9D5353 20%, rgb(191, 139, 103));
 }
 
 body {
@@ -120,7 +120,7 @@ button:hover {
 }
 
 .complete .toggle-item::after {
-    background: lightgreen;
+    background: var(--green);
 }
 
 .tasks .item .toggle-item {
@@ -145,7 +145,7 @@ button:hover {
 .complete .toggle-item:focus,
 .complete .toggle-item {
     transform: scaleX(1);
-    color: rgba(79, 192, 141, .4);
+    color: rgba(191, 139, 103);
 }
 
 .tasks .item .remove-item {
