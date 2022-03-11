@@ -1,6 +1,6 @@
 :root {
     --green: #BF8B67;
-    --font: 'Nerko One', cursive;
+    --font: 'Fredoka', sans-serif;
 }
 
 *,
@@ -13,6 +13,7 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "liga", "kern";
+    font-family: 'Fredoka', sans-serif;
     overflow-y: scroll;
     overflow-x: hidden;
     background: linear-gradient(to right, #9D5353 20%, rgb(191, 139, 103));
